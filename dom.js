@@ -49,6 +49,29 @@
 //  li[i].style.backgroundColor = 'skyblue';
 //}
 
+// QUERYSELECTOR //
+
+let header = document.querySelector('#main-header');
+header.style.borderBottom = 'solid 4px #ccc';
+
+let input = document.querySelector('input');
+input.value = 'Enter Item';
+
+let submit = document.querySelector('input[type="submit"]');
+submit.value = 'SEND';
+
+let item = document.querySelector('.list-group-item');
+item.style.color = 'red';
+
+//let lastItem = document.querySelector('.list-group-item:last-child');
+//lastItem.style.color = 'blue';//
+
+let secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor = 'green'; 
+
+let thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+thirdItem.style.display = 'none';
+
 
 
 
