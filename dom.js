@@ -51,7 +51,7 @@
 
 // QUERYSELECTOR //
 
-let header = document.querySelector('#main-header');
+/*let header = document.querySelector('#main-header');
 header.style.borderBottom = 'solid 4px #ccc';
 
 let input = document.querySelector('input');
@@ -70,9 +70,74 @@ let secondItem = document.querySelector('.list-group-item:nth-child(2)');
 secondItem.style.backgroundColor = 'green'; 
 
 let thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-thirdItem.style.display = 'none';
+thirdItem.style.display = 'none';*/
+
+//TRANVERSING THE DOM //
+
+let itemList = document.querySelector('#items');
+//parentNode
+//console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor = "#f4f4f4";
+//console.log(itemList.parentNode.parentNode);
+
+//parentElement
+//console.log(itemList.parentElement);
+//itemList.parentElement.style.backgroundColor = "#f4f4f4";
+//console.log(itemList.parentElement.parentElement);
+
+// childNode
+//console.log(itemList.childNodes);
+
+//console.log(itemList.children);
+//console.log(itemList.children[1]);
+
+//firstChild
+//console.log(itemList.firstChild);
+//firstElementChild
+//console.log(itemList.firstElementChild);
+
+//lastChild
+//console.log(itemList.lastChild);
+//lastElementChild
+//console.log(itemList.lastElementChild);
+
+//nextSibling
+//console.log(itemList.nextSibling);
+//nextElementSibling
+//console.log(itemList.nextElementSibling);
+
+//previousSibling
+//console.log(itemList.previousSibling);
+//previousElementSibling
+//console.log(itemList.previousElementSibling);
+
+// createElement
+
+// create a div
+let newDiv = document.createElement('div');
+
+// add class
+newDiv.className = 'hello';
+
+// add id
+newDiv.id = 'hi hello';
+
+//add attribute
+newDiv.setAttribute('title','hello div');
+
+// create textNode
+let newDivText = document.createTextNode('hello world');
+
+//add text to div
+newDiv.appendChild(newDivText);
+
+let container = document.querySelector('header.container');
+let h1 = document.querySelector('header h1');
 
 
+console.log(newDiv);
+
+container.insertBefore(newDiv,h1);
 
 
-
+ 
