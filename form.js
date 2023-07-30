@@ -5,6 +5,7 @@
         var name = document.getElementById('name').value;
   
         // Save the name in localStorage.
-        localStorage.setItem('name', name);
+        localStorage.setItem('name', JSON.stringify(name));
+        
       }));
   
