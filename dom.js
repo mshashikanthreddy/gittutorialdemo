@@ -74,7 +74,7 @@ thirdItem.style.display = 'none';*/
 
 //TRANVERSING THE DOM //
 
-let itemList = document.querySelector('#items');
+//let itemList = document.querySelector('#items');
 //parentNode
 //console.log(itemList.parentNode);
 //itemList.parentNode.style.backgroundColor = "#f4f4f4";
@@ -114,30 +114,81 @@ let itemList = document.querySelector('#items');
 // createElement
 
 // create a div
-let newDiv = document.createElement('div');
+//let newDiv = document.createElement('div');
 
 // add class
-newDiv.className = 'hello';
+//newDiv.className = 'hello';
 
 // add id
-newDiv.id = 'hi hello';
+//newDiv.id = 'hi hello';
 
 //add attribute
-newDiv.setAttribute('title','hello div');
+//newDiv.setAttribute('title','hello div');
 
 // create textNode
-let newDivText = document.createTextNode('hello world');
+//let newDivText = document.createTextNode('hello world');
 
 //add text to div
-newDiv.appendChild(newDivText);
+//newDiv.appendChild(newDivText);
 
-let container = document.querySelector('header.container');
-let h1 = document.querySelector('header h1');
-
-
-console.log(newDiv);
-
-container.insertBefore(newDiv,h1);
+//let container = document.querySelector('header.container');
+//let h1 = document.querySelector('header h1');
 
 
- 
+//console.log(newDiv);
+
+//container.insertBefore(newDiv,h1);
+
+let form = document.getElementById('addForm');
+let itemList = document.getElementById('items');
+
+//Form submit event
+form.addEventListener('submit',addItem);
+// Delete Event
+itemList.addEventListener('click',removeItem);
+
+// Add item
+function addItem(e)
+{
+    e.preventDefault();
+
+
+
+// Get input value
+let newItem = document.getElementById('item').value;
+
+// create new li element
+let li = document.createElement('li');
+//Add class  
+li.className = 'list-group-item';
+//Add text node with input value
+li.appendChild(document.createTextNode(newItem));
+
+// create del button element
+let deleteBtn = document.createElement('button');
+
+//Add classes to del button
+deleteBtn.className = "btn btn-danger btn-sm float-right delete";
+//Append text node
+deleteBtn.appendChild(document.createTextNode('X'));
+
+// Append button to li
+li.appendChild(deleteBtn);
+
+// Append li to list
+itemList.appendChild(li);
+}
+
+// Remove item
+function removeItem(e)
+{
+    if(e.target.classList.contains('delete'))
+    {
+        if(confirm('Are you Sure'))
+        {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
+
