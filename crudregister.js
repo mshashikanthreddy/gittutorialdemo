@@ -12,56 +12,70 @@ const obj = {
     phoneNo
 
 }
-axios.post("https://crudcrud.com/api/488fff8800554fc693520229130f05f7/appoinmentData",obj)
-    .then((response) => {
-        console.log(response);
+window.addEventListener("DOMContentLoaded", () => {
+axios.get("https://crudcrud.com/api/488fff8800554fc693520229130f05f7/appoinmentData",obj)
+    .then(response => {
+        
+        for(var i=0;i<response.data.length;i++)
+        {
+            showNewUserOnScreen(response.data[i]);
+        }
     })
-    .catch((err) => {
+    .catch(err => {
         console.log(err);
     })
 
 //localStorage.setItem(obj.mail , JSON.stringify(obj))
 //printOnScreen(obj)
+
+})
 }
-
-
-function printOnScreen(obj)
-{
+function showNewUserOnScreen(user){
+    
     const parentElem = document.getElementById('listOfItems')
     const childElem = document.createElement('li')
-    childElem.textContent = obj.name + " - " + obj.mail + " - " + obj.phoneNo ;
-
-    // delete button
-
-    const deleteBtn = document.createElement('input');
-
-    deleteBtn.type = "button";
-
-    deleteBtn.value = 'delete';   
-    
-    deleteBtn.onclick = () => {
-
-        localStorage.removeItem(obj.mail);
-        parentElem.removeChild(childElem);
-    }
-
-    // edit button
-    const editBtn = document.createElement('input');
-
-    editBtn.type = "button";
-
-    editBtn.value = 'edit';  
-    editBtn.onclick = () => {
-
-        localStorage.removeItem(obj.mail);
-        parentElem.removeChild(childElem);
-        document.getElementById('nametag').value = obj.name;
-        document.getElementById('mailtag').value = obj.mail;
-        document.getElementById('numbertag').value = obj.phoneNo;
-
-
-    }
-    childElem.appendChild(deleteBtn);
-    childElem.appendChild(editBtn);
+    childElem.textContent = user.name + " - " + user.mail + " - " + user.phoneNo ;
     parentElem.appendChild(childElem);
+
 }
+
+// function printOnScreen(obj)
+// {
+//     const parentElem = document.getElementById('listOfItems')
+//     const childElem = document.createElement('li')
+//     childElem.textContent = obj.name + " - " + obj.mail + " - " + obj.phoneNo ;
+
+//     // delete button
+
+//     const deleteBtn = document.createElement('input');
+
+//     deleteBtn.type = "button";
+
+//     deleteBtn.value = 'delete';   
+    
+//     deleteBtn.onclick = () => {
+
+//         localStorage.removeItem(obj.mail);
+//         parentElem.removeChild(childElem);
+//     }
+
+//     // edit button
+//     const editBtn = document.createElement('input');
+
+//     editBtn.type = "button";
+
+//     editBtn.value = 'edit';  
+//     editBtn.onclick = () => {
+
+//         localStorage.removeItem(obj.mail);
+//         parentElem.removeChild(childElem);
+//         document.getElementById('nametag').value = obj.name;
+//         document.getElementById('mailtag').value = obj.mail;
+//         document.getElementById('numbertag').value = obj.phoneNo;
+
+
+//     }
+//     childElem.appendChild(deleteBtn);
+//     childElem.appendChild(editBtn);
+//     parentElem.appendChild(childElem);
+//}
