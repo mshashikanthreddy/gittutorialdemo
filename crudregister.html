@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,16 +6,16 @@
 </head>
 <body>
     <form onsubmit="registerUser(event)">
-    <input type="text" name="username" id="nametag" required/>
+    <input type="text" name="username" id="nameuser" required/>
     <label>personName</label>
-    <input type="mail" name="mail" id="mailtag" required/>
+    <input type="mail" name="mail" id="mailid" required/>
     <label>E-mail</label>
-    <input type="tel" name="phoneNo" id="numbertag" required/>
+    <input type="tel" name="phoneNo" id="number" required/>
     <label>ph-no</label><br>
     <button>submit</button>
 </form>
-    <ul id="listOfItems"></ul>
+    <ul id="listOfUsers"></ul>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
-    <script src="advjs.js"></script>
+    <script src="crudregister.js"></script>
 </body>
 </html>
