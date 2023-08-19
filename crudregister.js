@@ -75,7 +75,7 @@ function registerUser(event) {
     //showNewUserOnScreen(obj)
 
 window.addEventListener("DOMContentLoaded", () => {
- axios.get("https://crudcrud.com/api/488fff8800554fc693520229130f05f7/appoinmentData")
+ axios.get("https://crudcrud.com/api/7c005d49bc7f4fe78bec11da173c2818/bookingCall")
       .then((response) =>{
          for( let i=0; i < response.data.length; i++){
              showNewUserOnScreen(response.data[i]);
@@ -94,13 +94,15 @@ function showNewUserOnScreen(user){
 
     const parentNode = document.getElementById('listOfUsers');
     const childHTML = `<li id=${user._id}> ${user.name} - ${user.email} - ${user.phonenumber} 
-                            <button class='deletbutton' onclick=deleteUser('${user._id}')> Delete User </button>
-                         </li>`
+                            <button class='deletebutton' onclick=deleteUser('${user._id}')> Delete User </button>
+                         <button class='editbutton'
+                         onclick = editUserDetails('${user._id}','${user.name}','${user.email}','${user.phonenumber}')>Edit User </button>
+                        </li>`
 
     parentNode.innerHTML = parentNode.innerHTML + childHTML;
 
     function deleteUser(userId){
-        axios.delete(`https://crudcrud.com/api/488fff8800554fc693520229130f05f7/appoinmentData/${userId}`)
+        axios.delete(`https://crudcrud.com/api/7c005d49bc7f4fe78bec11da173c2818/bookingCall/${userId}`)
            .then((response) =>{
             removeUserFromScreen(userId);
            })
@@ -108,6 +110,15 @@ function showNewUserOnScreen(user){
             console.log(err);
            })
         }
+
+        function editUserDetails(_id,name,email,phonenumber){
+
+                document.getElementById('nameuser').value = name;
+                document.getElementById('mailid').value = email;
+                document.getElementById('number').value = phonenumber;
+                deleteUser(_id);
+            }
+     
 
         function removeUserFromScreen(userId){
             const parentNode = document.getElementById('listOfUsers');
