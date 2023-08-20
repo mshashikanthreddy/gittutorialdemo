@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Restaurant app</title>
+</head>
+<body style="background-color:antiquewhite; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <div style="color:brown;">
+        <form onsubmit="orderFood(event)">
+            <label>Choose Price:</label>
+            <input type="number" id="price" name="itemprice" required/>
+            <label>Choose Dish:</label>
+            <input type="text" id="dish" name="itemname" required/>
+            <label>Choose a table:</label>
+            <input list="table" name="tablename">
+                <datalist id="table">
+                    <option value="Table1">
+                    <option value="Table2">
+                    <option value="Table3">
+                </datalist>
+            </list>
+            <button class="btn-success">Add to bill</button><br><br>
+        </form>
+    </div>
+        <div style="color:cadetblue;">
+        <ul id="DetailsOfItems"><h1>Orders</h1></ul><br>
+        <ul id="Table1"><h3>Table1</h3></ul><br>
+        <ul id="Table2"><h3>Table2</h3></ul><br>
+        <ul id="Table3"><h3>Table3</h3></ul>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="restaurantapp.js"></script>
+</body>
+</html>
